@@ -1,0 +1,6 @@
+{
+  "name": "Haxudio",
+  "description": "Modern Digital Agency providing Web Development, Graphic Design, Video Editing, Social Media Management, and Digital Marketing services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
