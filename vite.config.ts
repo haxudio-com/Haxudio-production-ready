@@ -31,13 +31,20 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]',
 
-          // Manual Chunking (Sabse Important)
-          manualChunks: {
-            // Heavy libraries ko alag chunks mein
-            vendor: ['react', 'react-dom'],
-            motion: ['framer-motion'],
-            supabase: ['@supabase/supabase-js'],
-            // Agar aur heavy libs hain to yahan add karo
+          // Manual Chunking (Function-based optimization for exact matching)
+          manualChunks(id) {
+            // Supabase ko alag chunk mein daal rahe hain
+            if (id.includes('@supabase')) {
+              return 'supabase';
+            }
+            // motion/react aur framer-motion dono ko pakadne ke liye
+            if (id.includes('motion') || id.includes('framer-motion')) {
+              return 'motion';
+            }
+            // React aur baki core libraries ko vendor chunk mein daal rahe hain
+            if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+              return 'vendor';
+            }
           },
         },
       },
