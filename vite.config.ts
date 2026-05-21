@@ -36,6 +36,7 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]',
 
+<<<<<<< HEAD
           // JavaScript bundles ko optimize aur split karne ke liye function
           manualChunks(id) {
             // Supabase chunk
@@ -47,6 +48,19 @@ export default defineConfig(({ mode }) => {
               return 'motion';
             }
             // Core React libraries chunk
+=======
+          // Manual Chunking (Function-based optimization for exact matching)
+          manualChunks(id) {
+            // Supabase ko alag chunk mein daal rahe hain
+            if (id.includes('@supabase')) {
+              return 'supabase';
+            }
+            // motion/react aur framer-motion dono ko pakadne ke liye
+            if (id.includes('motion') || id.includes('framer-motion')) {
+              return 'motion';
+            }
+            // React aur baki core libraries ko vendor chunk mein daal rahe hain
+>>>>>>> f5079009c7551ac1688c3bfd6c58c83a766da18f
             if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
               return 'vendor';
             }

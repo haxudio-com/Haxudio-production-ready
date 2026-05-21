@@ -3,6 +3,16 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+<<<<<<< HEAD
+=======
+
+// Pages ko lazy load kar rahe hain taake unka bundle size alag ho jaye
+const Home = lazy(() => import('./pages/Home'));
+const Services = lazy(() => import('./pages/Services'));
+const Projects = lazy(() => import('./pages/Projects'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+>>>>>>> f5079009c7551ac1688c3bfd6c58c83a766da18f
 
 // Pages ko lazy load kar rahe hain taake unka bundle size alag ho jaye
 const Home = lazy(() => import('./pages/Home'));
