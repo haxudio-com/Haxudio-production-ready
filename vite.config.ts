@@ -21,28 +21,40 @@ export default defineConfig(({ mode }) => {
 
     build: {
       // === Performance Optimizations ===
-      minify: 'esbuild',           // Fast aur effective
-      sourcemap: false,            // Production mein false rakho
+      minify: 'esbuild',           // Code ko compress karne ke liye
+      sourcemap: false,            // Production build ko halka rakhne ke liye
+
+      // Network Dependency Tree (Chaining) ko khatam karne ke liye preload injection
+      modulePreload: {
+        polyfill: true,
+      },
 
       rollupOptions: {
         output: {
-          // Better caching ke liye hash
+          // Better caching ke liye hash control
           entryFileNames: 'assets/[name]-[hash].js',
           chunkFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]',
 
-          // Manual Chunking (Sabse Important)
-          manualChunks: {
-            // Heavy libraries ko alag chunks mein
-            vendor: ['react', 'react-dom'],
-            motion: ['framer-motion'],
-            supabase: ['@supabase/supabase-js'],
-            // Agar aur heavy libs hain to yahan add karo
+          // JavaScript bundles ko optimize aur split karne ke liye function
+          manualChunks(id) {
+            // Supabase chunk
+            if (id.includes('@supabase')) {
+              return 'supabase';
+            }
+            // Motion / Framer Motion chunk
+            if (id.includes('motion') || id.includes('framer-motion')) {
+              return 'motion';
+            }
+            // Core React libraries chunk
+            if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+              return 'vendor';
+            }
           },
         },
       },
 
-      // Chunk size limit (warning ke liye)
+      // Chunk size limit warning threshold
       chunkSizeWarningLimit: 600,
     },
 
