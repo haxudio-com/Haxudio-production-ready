@@ -8,7 +8,6 @@ const stats = [
   { label: 'Team Members', value: '30+' },
   { label: 'Years of Experience', value: '2+' },
 ];
-
 const team = [
   { name: 'Malik Abdul Ghafoor', role: 'CEO', initials: 'MG', bio: 'Visionary leader driving digital innovation in Pakistan.', image: '/CEO.avif' },
   { name: 'Syed Ali', role: 'CTO', initials: 'SA', bio: 'Tech strategist specializing in scalable cloud architectures.', image: '/CTO.avif' },
