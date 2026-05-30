@@ -115,7 +115,6 @@ export default function About() {
                   <div className="aspect-square rounded-full flex items-center justify-center text-2xl md:text-4xl font-bold text-white mb-6 md:mb-8 group-hover:scale-105 transition-all duration-500 shadow-xl shadow-primary/10 relative overflow-hidden bg-bg-main border-2 border-border-s cursor-pointer">
                     {member.image ? (
                         <img 
-                        loading="lazy"
                           src={member.image} 
                           alt={member.name} 
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
