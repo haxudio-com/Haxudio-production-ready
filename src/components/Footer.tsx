@@ -20,7 +20,7 @@ export default function Footer() {
               <a href="https://www.linkedin.com/company/haxudio-digital-solutions" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
+              <a href="https://www.instagram.com/haxudio/" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
                 <Instagram size={20} />
               </a>
               <a href="https://www.facebook.com/profile.php?id=61567343046881" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
