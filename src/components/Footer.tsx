@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,17 +17,17 @@ export default function Footer() {
               Building digital experiences that drive growth. We transform visions into stunning digital products through innovative tech and design.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
+              <a href="https://www.linkedin.com/company/haxudio-digital-solutions" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
                 <Linkedin size={20} />
               </a>
               <a href="#" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
-                <Twitter size={20} />
+              <a href="https://www.facebook.com/profile.php?id=61567343046881" className="p-2.5 bg-bg-main border border-border-s rounded-xl text-text-m hover:text-primary transition-all duration-300">
+                <Facebook size={20} />
               </a>
             </div>
-          </div>
+          </div>  
 
           {/* Quick Links */}
           <div>
