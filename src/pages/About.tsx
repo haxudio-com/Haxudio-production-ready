@@ -10,10 +10,10 @@ const stats = [
 ];
 
 const team = [
-  { name: 'Malik Abdul Ghafoor', role: 'CEO', initials: 'MG', bio: 'Visionary leader driving digital innovation in Pakistan.', image: '/CEO.png' },
-  { name: 'Syed Ali', role: 'CTO', initials: 'SA', bio: 'Tech strategist specializing in scalable cloud architectures.', image: '/CTO.png' },
-  { name: 'Mian Dad', role: 'CMO', initials: 'MD', bio: 'Creative growth expert with a passion for global brand scale.', image: '/CMO.png' },
-  { name: 'Farooq', role: 'CPO', initials: 'F', bio: 'Product perfectionist ensuring every pixel drives value.', image: '/CPO.png' },
+  { name: 'Malik Abdul Ghafoor', role: 'CEO', initials: 'MG', bio: 'Visionary leader driving digital innovation in Pakistan.', image: '/CEO.avif' },
+  { name: 'Syed Ali', role: 'CTO', initials: 'SA', bio: 'Tech strategist specializing in scalable cloud architectures.', image: '/CTO.avif' },
+  { name: 'Mian Dad', role: 'CMO', initials: 'MD', bio: 'Creative growth expert with a passion for global brand scale.', image: '/CMO.avif' },
+  { name: 'Farooq', role: 'CPO', initials: 'F', bio: 'Product perfectionist ensuring every pixel drives value.', image: '/CPO.avif' },
 ];
 
 export default function About() {
@@ -114,28 +114,29 @@ export default function About() {
                 <div className="text-center group">
                   <div className="aspect-square rounded-full flex items-center justify-center text-2xl md:text-4xl font-bold text-white mb-6 md:mb-8 group-hover:scale-105 transition-all duration-500 shadow-xl shadow-primary/10 relative overflow-hidden bg-bg-main border-2 border-border-s cursor-pointer">
                     {member.image ? (
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = 'none';
-                            const parent = (e.target as HTMLImageElement).parentElement;
-                            if (parent) {
-                                const fallback = document.createElement('div');
-                                fallback.className = "w-full h-full gradient-bg flex items-center justify-center";
-                                const span = document.createElement('span');
-                                span.className = "relative z-10";
-                                span.innerText = member.initials;
-                                fallback.appendChild(span);
-                                parent.appendChild(fallback);
-                            }
-                          }}
-                        />
+                      <img
+                        loading="lazy"
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          const parent = (e.target as HTMLImageElement).parentElement;
+                          if (parent) {
+                            const fallback = document.createElement('div');
+                            fallback.className = "w-full h-full gradient-bg flex items-center justify-center";
+                            const span = document.createElement('span');
+                            span.className = "relative z-10";
+                            span.innerText = member.initials;
+                            fallback.appendChild(span);
+                            parent.appendChild(fallback);
+                          }
+                        }}
+                      />
                     ) : (
-                        <div className="w-full h-full gradient-bg flex items-center justify-center">
-                            <span className="relative z-10">{member.initials}</span>
-                        </div>
+                      <div className="w-full h-full gradient-bg flex items-center justify-center">
+                        <span className="relative z-10">{member.initials}</span>
+                      </div>
                     )}
                   </div>
                   <h4 className="text-xl font-bold mb-2 text-text-h">{member.name}</h4>
